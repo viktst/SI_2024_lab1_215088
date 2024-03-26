@@ -1,0 +1,40 @@
+cd Desktop
+touch logs.txt
+touch 215088.txt
+mkdir SI_2024_lab1_215088
+cd SI_2024_lab1_215088
+git init
+git remote add origin https://github.com/viktst/SI_2024_lab1_215088.git
+echo "Viktor Stamenovski, 215088" >> README.md
+git add README.md
+git commit -m "Initial commit"
+ls 
+git add --all
+git commit -m "Add starter code"
+git push origin --all
+git branch bug1
+git branch bug2
+git branch
+git checkout bug1
+git commit -am "Fix wrong condition in filterOddLengthStrings"
+git checkout bug2
+git commit -am "Fix wrong condition in makeBigStringFrom"
+git checkout bug1
+git commit -am "Call method filterOddLengthStrings in main class"
+git checkout bug2
+git commit -am "Call method makeBigStringFrom in main class"
+git push origin --all
+git checkout master
+git merge bug1
+git push origin --all
+git checkout bug2
+git rebase master
+git add SILab1Main.java
+git rebase --continue
+git checkout master
+git merge bug2
+git push origin bug2 --force
+git push origin --all
+git add --all
+git commit -m "Final commit"
+git push origin --all
